@@ -1,0 +1,65 @@
+git-flow init
+
+git checkout master
+
+# creación del tag v1.0.0
+
+git add .
+git commit -m "primera versión"
+git tag -a v1.0.0 -m "primera versión"
+git push
+git push --tag
+
+# como nombre le coloqué 'bug'
+git flow hotflix start 'nombre'
+
+git add .
+git commit -m "creación y modificación de la rama hotfix"
+git tag -a v1.0.1 -m "rama hotfix"
+
+git flow hotfix finish 'bug'
+
+# cambia a master
+
+git push
+git push --tag
+
+git checkout -b feature1 master
+
+git checkout master
+
+git checkout -b feature2 master
+
+git checkout feature1
+
+# modificamos el archivo readme.md
+
+git add .
+git commit -m "feature 1"
+
+git checkout master
+
+git merge --no-ff feature1
+
+git tag -a v1.1.0 -m "feature 1"
+
+git push
+git push --tag
+
+git checkout feature2
+
+# modificamos el readme.md
+
+git add .
+git commit -m "feature 2"
+
+git checkout master
+
+# resolvemos el conflicto.
+
+git add .
+git commit -m "solución de conflicto"
+git tag -a v1.2.0
+git push
+git push --tag
+
